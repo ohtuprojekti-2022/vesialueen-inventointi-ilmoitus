@@ -6,7 +6,7 @@ A public geospatial information service, offered by the [Suomen meriarkeologinen
 
 ## Project links
 
-### Application links
+### Application
 * Frontend: 
   * Production:
     * [GitHub]()
@@ -19,7 +19,7 @@ A public geospatial information service, offered by the [Suomen meriarkeologinen
     * [GitHub]()
 
 ### Documentation
-* [User manual]()
+* [User manual](https://github.com/ohtuprojekti-2022/vesialueen-inventointi-ilmoitus/blob/main/user_manual.md)
 * []()
 
 ### Project progress
