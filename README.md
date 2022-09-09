@@ -8,11 +8,11 @@ A public geospatial information service, offered by the [Suomen meriarkeologinen
 
 ### Application
 * Frontend: 
-  * [Production](https://github.com/ohtuprojekti-2022/vesialue-front)
-  * [Development]()
+  * [Github](https://github.com/ohtuprojekti-2022/vesialue-front)
+  * Heroku: [Production](https://vesialue-front.herokuapp.com), [Staging](https://vesialue-front-staging.herokuapp.com)
 * Backend: 
-  * [Production](https://github.com/ohtuprojekti-2022/vesialue-back)
-  * [Development]()
+  * [Github](https://github.com/ohtuprojekti-2022/vesialue-back)
+  * Heroku: [Production](https://vesialue-back.herokuapp.com), [Staging](https://vesialue-back-staging.herokuapp.com)
 
 ### Documentation
 * [User manual](https://github.com/ohtuprojekti-2022/vesialueen-inventointi-ilmoitus/blob/main/user_manual.md)
