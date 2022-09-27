@@ -19,7 +19,8 @@ _Please follow this guideline during the project_
 * `git checkout <branch-name>`
 
 ### Task done
-* `git add -a /-p`
+* `git add -Ap`
+  * _untracked files_ `git add .`
 * `git commit -m "Commit message"`
 * `git push`
 * Mark Status as "Done" and update estimate in sprint backlog 
@@ -34,7 +35,7 @@ _Please follow this guideline during the project_
     * Solve conflict
     * `git add -a`
     * `git commit -m "Solved merge conflict with <branch-name>"`
-    * `git push`
+* `git push`
 * `git checkout development`
 * `git merge <branch-name>`
 * `git push`
