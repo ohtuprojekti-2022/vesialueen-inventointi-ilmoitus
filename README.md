@@ -21,5 +21,6 @@ A public geospatial information service, offered by the [Suomen meriarkeologinen
 ### Project progress
 * [Product backlog](https://docs.google.com/spreadsheets/d/1GhMzo0HEctbyjW3azTA7_18ltV3BXhEmZAFgWisw2lA/edit#gid=0)
 * [Sprint log](https://docs.google.com/spreadsheets/d/1nCVv4__ZBgJAmnxx4Y7evX8--HsfqhYL4azqnDb5UFg/edit#gid=625081244)
+* [Workflow practices](https://github.com/ohtuprojekti-2022/vesialueen-inventointi-ilmoitus/blob/main/workflow_practices.md)
 * [Definition of done](https://github.com/ohtuprojekti-2022/vesialueen-inventointi-ilmoitus/blob/main/dod.md)
 * [Working hours](https://docs.google.com/spreadsheets/d/1nCVv4__ZBgJAmnxx4Y7evX8--HsfqhYL4azqnDb5UFg/edit#gid=2007903840)
