@@ -7,7 +7,7 @@ module.exports = defineConfig({
   env: {
     mongodb: {
       uri: process.env.CYPRESS_MONGO_URI,
-      database: process.env.DATABASE
+      database: process.env.CYPRESS_DATABASE
     }
   },
   e2e: {
@@ -16,7 +16,7 @@ module.exports = defineConfig({
       mongo.configurePlugin(on)
     },
     baseUrl: process.env.CYPRESS_BASE_URL,
-    backendUrl: process.env.BACKEND_URL,
+    backendUrl: process.env.CYPRESS_BACKEND_URL,
     video: false
   },
 });
