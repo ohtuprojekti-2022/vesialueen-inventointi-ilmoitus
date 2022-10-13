@@ -1,26 +1,22 @@
 const { defineConfig } = require("cypress")
-const createBundler = require("@bahmutov/cypress-esbuild-preprocessor")
-const addCucumberPreprocessorPlugin =
-	require("@badeball/cypress-cucumber-preprocessor").addCucumberPreprocessorPlugin
-const createEsbuildPlugin =
-	require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin
+const mongo = require('cypress-mongodb')
+require('dotenv').config()
+
 
 module.exports = defineConfig({
-	e2e: {
-		async setupNodeEvents(on, config) {
-			const bundler = createBundler({
-				plugins: [createEsbuildPlugin(config)]
-			})
-
-			on('file:preprocessor', bundler)
-			await addCucumberPreprocessorPlugin(on, config)
-
-			return config
-		},
-		specPattern: '**/*.feature',
-		baseUrl: 'http://localhost:3000',
-		video: false
-	},
-})
-
-
+  env: {
+    mongodb: {
+      uri: process.env.CYPRESS_MONGO_URI,
+      database: process.env.DATABASE
+    }
+  },
+  e2e: {
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+      mongo.configurePlugin(on)
+    },
+    baseUrl: process.env.CYPRESS_BASE_URL,
+    backendUrl: process.env.BACKEND_URL,
+    video: false
+  },
+});
