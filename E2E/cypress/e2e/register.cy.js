@@ -8,7 +8,9 @@ describe('User registration', () => {
 			name: ''
 		}
 
-		cy.dropCollection('user')
+		cy.dropCollection('user', {failSilently: true}).then(response => {
+			cy.log(response)
+		})
 
 		cy.request('POST', `${Cypress.config().backendUrl}/api/register/`, existing_user)
 
