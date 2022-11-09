@@ -20,11 +20,12 @@ describe('User login', () => {
 		cy.shouldBeOnThePage('/kirjaudu')
 	})
 
-	it('User is redirected to the front page after successful login', () => {
+	it('User is logged in and redirected to the front page after successful login', () => {
 		cy.get('[data-testid="user-name"').type('existing_user')
 		cy.get('[data-testid="pass-word"]').type('password123')
 		cy.get('[data-testid="loginbutton"]').click()
 		cy.shouldBeOnThePage('/')
+		cy.shouldBeLoggedIn()
 	})
 
 	it('Login fails with incorrect username', () => {

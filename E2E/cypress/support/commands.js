@@ -31,3 +31,9 @@ Cypress.Commands.add('registerUser', (user) => {
 Cypress.Commands.add('shouldBeOnThePage', (path) => {
     cy.url().should('eq', `${Cypress.config().baseUrl}${path}`)
 })
+
+Cypress.Commands.add('shouldBeLoggedIn', () => {
+    cy.window().its('localStorage.userDetails').should('exist')
+    cy.get('[data-testid="logged-in-user-dropdown"]').click()
+    cy.contains('Kirjaudu ulos')
+})

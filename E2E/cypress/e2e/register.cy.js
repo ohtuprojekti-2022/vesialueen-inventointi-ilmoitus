@@ -27,8 +27,7 @@ describe('User registration', () => {
 		cy.get('#email').type('cypress@test.com')
 		cy.get('[data-testid="submit"]').click()
 		cy.shouldBeOnThePage('/')
-		cy.contains('cypress_tester').click()
-		cy.contains('Kirjaudu ulos')
+		cy.shouldBeLoggedIn()
 	})
 
 	it('Registration fails with a taken username', () => {
