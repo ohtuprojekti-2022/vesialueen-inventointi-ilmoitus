@@ -23,3 +23,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('registerUser', (user) => {
+    cy.request('POST', `${Cypress.config().backendUrl}/api/register`, user)
+})
+
+Cypress.Commands.add('shouldBeOnThePage', (path) => {
+    cy.url().should('eq', `${Cypress.config().baseUrl}${path}`)
+})

@@ -12,19 +12,19 @@ describe('User login', () => {
 			cy.log(response)
 		})
 
-		cy.request('POST', `${Cypress.config().backendUrl}/api/register/`, existing_user)
+		cy.registerUser(existing_user)
 
 		cy.visit('/')
 		cy.contains('Käyttäjä').click()
 		cy.contains('Kirjaudu').click()
-		cy.url().should('eq', `${Cypress.config().baseUrl}/kirjaudu`)
+		cy.shouldBeOnThePage('/kirjaudu')
 	})
 
 	it('User is redirected to the front page after successful login', () => {
 		cy.get('[data-testid="user-name"').type('existing_user')
 		cy.get('[data-testid="pass-word"]').type('password123')
 		cy.get('[data-testid="loginbutton"]').click()
-		cy.url().should('eq', Cypress.config().baseUrl + '/')
+		cy.shouldBeOnThePage('/')
 	})
 
 	it('Login fails with incorrect username', () => {
@@ -32,7 +32,7 @@ describe('User login', () => {
 		cy.get('[data-testid="pass-word"]').type('password123')
 		cy.get('[data-testid="loginbutton"]').click()
 		cy.contains('Väärä käyttäjänimi tai salasana')
-		cy.url().should('eq', Cypress.config().baseUrl + '/kirjaudu')
+		cy.shouldBeOnThePage('/kirjaudu')
 	})
 
 	it('Login fails with incorrect password', () => {
@@ -40,7 +40,7 @@ describe('User login', () => {
 		cy.get('[data-testid="pass-word"]').type('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
 		cy.get('[data-testid="loginbutton"]').click()
 		cy.contains('Väärä käyttäjänimi tai salasana')
-		cy.url().should('eq', Cypress.config().baseUrl + '/kirjaudu')
+		cy.shouldBeOnThePage('/kirjaudu')
 	})
 
 })

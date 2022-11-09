@@ -8,25 +8,27 @@ describe('User registration', () => {
 			name: ''
 		}
 
-		cy.dropCollection('user', {failSilently: true}).then(response => {
+		cy.dropCollection('user', { failSilently: true }).then(response => {
 			cy.log(response)
 		})
 
-		cy.request('POST', `${Cypress.config().backendUrl}/api/register/`, existing_user)
+		cy.registerUser(existing_user)
 
 		cy.visit('/')
 		cy.contains('Käyttäjä').click()
 		cy.contains('Rekisteröidy').click()
 		cy.contains('Luo uusi tunnus')
-		cy.url().should('eq', `${Cypress.config().baseUrl}/rekisteroidy`)
+		cy.shouldBeOnThePage('/rekisteroidy')
 	})
 
-	it('User is redirected to the front page after successful registration', () => {
+	it('User is logged in and redirected to the front page after successful registration', () => {
 		cy.get('#username').type('cypress_tester')
 		cy.get('#password').type('password123')
 		cy.get('#email').type('cypress@test.com')
 		cy.get('[data-testid="submit"]').click()
-		cy.url().should('eq', Cypress.config().baseUrl + '/')
+		cy.shouldBeOnThePage('/')
+		cy.contains('cypress_tester').click()
+		cy.contains('Kirjaudu ulos')
 	})
 
 	it('Registration fails with a taken username', () => {
