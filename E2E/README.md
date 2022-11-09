@@ -7,6 +7,7 @@ In directory `E2E`, install dependencies with the command:
 npm install
 ```
 Set the environment variables at `.env` file:
+> The URLs should be set with no trailing slash (the last '/' at the end of the URL).
 ```
 CYPRESS_BASE_URL=<Frontend url>
 CYPRESS_BACKEND_URL=<Backend url>
