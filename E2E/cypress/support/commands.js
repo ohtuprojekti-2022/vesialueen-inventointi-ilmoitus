@@ -37,3 +37,7 @@ Cypress.Commands.add('shouldBeLoggedIn', () => {
     cy.get('[data-testid="logged-in-user-dropdown"]').click()
     cy.contains('Kirjaudu ulos')
 })
+
+Cypress.Commands.add('resetDatabase', () => {
+    cy.request('POST', `${Cypress.config().backendUrl}/api/tests/reset`)
+})

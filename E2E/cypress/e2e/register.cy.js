@@ -8,10 +8,7 @@ describe('User registration', () => {
 			name: ''
 		}
 
-		cy.dropCollection('user', { failSilently: true }).then(response => {
-			cy.log(response)
-		})
-
+		cy.resetDatabase()
 		cy.registerUser(existing_user)
 
 		cy.visit('/')
