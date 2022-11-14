@@ -41,3 +41,13 @@ Cypress.Commands.add('shouldBeLoggedIn', () => {
 Cypress.Commands.add('resetDatabase', () => {
     cy.request('POST', `${Cypress.config().backendUrl}/api/tests/reset`)
 })
+
+Cypress.Commands.add('navigateToNewInventoryForm', () => {
+    cy.get('[data-testid="new-inventory"]').click()
+    cy.shouldBeOnThePage('/inventointi-ilmoitus')
+})
+
+Cypress.Commands.add('navigateToFrontpage', () => {
+    cy.get('[data-testid="front-page"]').click()
+    cy.shouldBeOnThePage('/')
+})
