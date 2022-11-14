@@ -6,7 +6,7 @@
     "cypress": "^10.10.0"
   },
   "dependencies": {
-    "cypress-mongodb": "^5.1.1",
+    "cypress-slow-down": "^1.2.1",
     "dotenv": "^16.0.3"
   }
 }
