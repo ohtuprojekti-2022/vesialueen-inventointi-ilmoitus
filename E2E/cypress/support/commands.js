@@ -1,31 +1,23 @@
 // ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
+// For comprehensive examples of custom
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('resetDatabase', () => {
+    cy.request('POST', `${Cypress.config().backendUrl}/api/tests/reset`)
+})
 
 Cypress.Commands.add('registerUser', (user) => {
     cy.request('POST', `${Cypress.config().backendUrl}/api/register`, user)
+})
+
+Cypress.Commands.add('loginWith', (username, password) => {
+    // Login with UI
+    cy.navigateToLoginForm()
+    cy.get('[data-testid="user-name"').type(username)
+    cy.get('[data-testid="pass-word"]').type(password)
+    cy.get('[data-testid="loginbutton"]').click()
+    cy.shouldBeLoggedIn()
 })
 
 Cypress.Commands.add('shouldBeOnThePage', (path) => {
@@ -38,8 +30,10 @@ Cypress.Commands.add('shouldBeLoggedIn', () => {
     cy.contains('Kirjaudu ulos')
 })
 
-Cypress.Commands.add('resetDatabase', () => {
-    cy.request('POST', `${Cypress.config().backendUrl}/api/tests/reset`)
+Cypress.Commands.add('navigateToLoginForm', () => {
+    cy.get('[data-testid="user-dropdown"]').click()
+    cy.get('[data-testid="login"]').click()
+    cy.shouldBeOnThePage('/kirjaudu')
 })
 
 Cypress.Commands.add('navigateToNewInventoryForm', () => {
@@ -50,4 +44,10 @@ Cypress.Commands.add('navigateToNewInventoryForm', () => {
 Cypress.Commands.add('navigateToFrontpage', () => {
     cy.get('[data-testid="front-page"]').click()
     cy.shouldBeOnThePage('/')
+})
+
+Cypress.Commands.add('navigateToUserPage', () => {
+    cy.get('[data-testid="logged-in-user-dropdown"]').click()
+    cy.get('[data-testid="user-page"]').click()
+    cy.shouldBeOnThePage('/omasivu#tiedot')
 })
