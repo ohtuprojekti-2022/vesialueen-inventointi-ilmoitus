@@ -13,6 +13,17 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 import './commands'
+import 'cypress-slow-down/commands'
+
+import { slowCypressDown } from 'cypress-slow-down'
+// disable slow down by default
+slowCypressDown(false)
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here prevents Cypress from
+    // failing the test
+    return false
+})
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
