@@ -3,7 +3,7 @@ describe('Sending a new inventory report', () => {
         cy.resetDatabase()
         cy.visit('/')
         // Check that there's no inventory shown on the front page
-        cy.get('table').should('not.contain', 'Cypress Tester')
+        cy.contains('Cypress Tester').should('not.exist')
     })
 
     it('User can view the details of a successfully added inventory report', () => {
@@ -27,7 +27,7 @@ describe('Sending a new inventory report', () => {
         cy.getByTestId("terms-of-services").check()
         cy.getByTestId("submit").click()
         // User should be redirected to the report's page
-        cy.url().should('include', '/report/')
+        cy.url().should('include', '/raportti/')
         // Check that the report page shows correct details
         cy.contains('Päivämäärä: 20.11.2021')
         cy.contains('Tapa: Sukellus')
@@ -67,9 +67,9 @@ describe('Sending a new inventory report', () => {
         ])
         // Set inventory details
         cy.get('#inventorydate').type('2020-05-18')
+        cy.getByTestId("moreInfo").type('ei löytynyt mitään')
         cy.getByTestId("other").click()
         cy.getByTestId("methodInfo").type('Test method')
-        cy.getByTestId("terms-of-services").check()
         cy.getByTestId("submit").click()
         // Name and contact info should be pre-filled and not editable
         cy.getByTestId("name")
@@ -82,7 +82,7 @@ describe('Sending a new inventory report', () => {
             .should('have.value', '+358989898989')
             .and('be.disabled')
         // Should be redirected to the report's page
-        cy.url().should('include', '/report/')
+        cy.url().should('include', '/raportti/')
         // Check that the sent report is shown in user's own inventories
         cy.navigateToUserPage()
         cy.getByTestId("own-inventories").click()
