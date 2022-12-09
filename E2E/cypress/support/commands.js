@@ -70,3 +70,10 @@ Cypress.Commands.add('drawPolygon', (points) => {
     })
     cy.slowDownEnd()
 })
+
+Cypress.Commands.add('logOut', () => {
+    cy.getByTestId('logged-in-user-dropdown').contains('Kirjaudu ulos').then(option => {
+        option[0].click()
+      })
+    cy.shouldBeOnThePage('/')
+})

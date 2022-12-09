@@ -109,9 +109,7 @@ describe('Editing inventory reports', () => {
 
   // Logout before each account
   cy.navigateToUserPage()
-  cy.getByTestId('logged-in-user-dropdown').contains('Kirjaudu ulos').then(option => {
-    option[0].click()
-  })
+  cy.logOut()
 
   cy.registerUser(existing_user)
   cy.loginWith(existing_user.username, existing_user.password)

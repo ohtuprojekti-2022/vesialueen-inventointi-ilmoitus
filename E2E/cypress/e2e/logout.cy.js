@@ -18,9 +18,7 @@ describe('User logout', () => {
 		cy.loginWith('existing_user', 'password123')
     cy.window().its('localStorage.userDetails').should('exist')
     cy.navigateToUserPage()
-    cy.getByTestId('logged-in-user-dropdown').contains('Kirjaudu ulos').then(option => {
-      option[0].click()
-    })
+	cy.logOut()
     cy.shouldBeOnThePage('/')
     cy.window().its('localStorage.userDetails').should('not.exist')
 	})
