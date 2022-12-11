@@ -29,9 +29,9 @@ describe('Sending a new inventory report', () => {
         // User should be redirected to the report's page
         cy.url().should('include', '/raportti/')
         // Check that the report page shows correct details
-        cy.contains('Päivämäärä: 20.11.2021')
-        cy.contains('Tapa: Sukellus')
-        cy.contains('Näkyvyys: hyvä')
+        cy.contains('20.11.2021')
+        cy.contains('Sukellus')
+        cy.contains('hyvä')
         cy.contains('ei löytynyt mitään')
         cy.contains('Cypress Tester')
         // Check that the contact details are not shown

@@ -90,11 +90,16 @@ describe('Editing inventory reports', () => {
     cy.contains('button', 'Pyydä poistoa').click()
     cy.get('[data-testid="deleteReason"]').type('raportti on tehty huonosti')
     cy.contains('button', 'Pyydä inventoinnin poistoa').click()
-    // Check that the request went through
-    cy.contains('Poiston syy: raportti on tehty huonosti')
-    cy.contains('button', 'Pyydä poistoa').should('not.exist')
-    // Cancel the request
-    cy.contains('button', 'Hylkää poistopyyntö').click()
+    // Check that there's a confirmation
+    cy.contains('Oletko varma että haluat poistaa tämän inventoinnin?')
+    // Test "Don't remove" button
+    cy.contains('button', 'Älä poista').click()
+    cy.contains('button', 'Pyydä inventoinnin poistoa').click()
+    // Accept confirmation
+    cy.contains('button', 'Poista').click()
+    // Check that the request went through and cancel the request
+    cy.contains('raportti on tehty huonosti')
+    cy.contains('button', 'Peruuta poistopyyntö').click()
     cy.contains('button', 'Pyydä poistoa')
   })
 
