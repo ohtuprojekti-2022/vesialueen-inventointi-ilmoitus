@@ -2,14 +2,22 @@
 
 ## Käytetyt teknologiat, miten on testattu?
 
+Backendin testeissä on itse sovelluksen tapaan käytetty Pythonia.
 
+Testit ovat yksikkötestejä jotka testaavan luokkien, metodien ja funktioiden toimintaa. 
+
+Testeissä käytetään Pythonin unittest- ja pytest-työkaluja, sekä useita itsetehtyjä apufunktioita.
+
+Testeissä käytetty testidata on tehty mahdollisimman tarkasti muistuttamaan sellaista dataa jota oikeastikin menee palvelimelle frontendista. 
 
 ## Testikattavuus, mitä on testattu ja mitä ei?
 
 Testikattavuus sovelluksen tuotantopalvelimella:
-link
+- [![codecov](https://codecov.io/gh/ohtuprojekti-2022/vesialue-back/branch/main/graph/badge.svg?token=VF8NXG8KIG)](https://codecov.io/gh/ohtuprojekti-2022/vesialue-back)
 
+Backendin testikattavuus on Codecovin mukaan hyvin korkea, eli testaus on laaja-alaista ja testaamattomia asioita on hyvin vähän.
 
+Testaamisessa on keskitytty ensisijaisesti merkittävimpiin metodeihin ja funktioihin, minkä takia joitain vähemmän käytettyjä toiminnallisuuksia ei ole täysin testattu. 
 
 ## Testien suorittaminen
 
