@@ -15,7 +15,7 @@ describe('User logout', () => {
 	})
 
   it('Logged-in user can logout and it returns user to the front page', () => {
-		cy.loginWith('existing_user', 'password123')
+	cy.loginWith('existing_user', 'password123')
     cy.window().its('localStorage.userDetails').should('exist')
     cy.navigateToUserPage()
 	cy.logOut()

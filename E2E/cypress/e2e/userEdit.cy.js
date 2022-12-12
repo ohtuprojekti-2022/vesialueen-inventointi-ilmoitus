@@ -41,6 +41,7 @@ describe('User edit', () => {
         cy.getByTestId("name").should('have.value', 'edited_name')
         cy.getByTestId("email").should('have.value', 'edited_email@test.mail')
         cy.getByTestId("phone").should('have.value', '0400 123456')
+        cy.wait(400)
 	})
 
     it('Logged-in user can change their password', () => {
