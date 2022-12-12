@@ -24,6 +24,9 @@ describe('Sending a new inventory report', () => {
         cy.getByTestId("name").type('Cypress Tester')
         cy.getByTestId("email").type('cypress@test.mail')
         cy.getByTestId("phone").type('+1234567890')
+        cy.writeFile('cypress/fixtures/testFile.txt', 'Hello World')
+        cy.get('[data-testid="attachments"]').check()
+        cy.get('[data-testid="attachment"]').selectFile('cypress/fixtures/testFile.txt')
         cy.getByTestId("terms-of-services").check()
         cy.getByTestId("submit").click()
         // User should be redirected to the report's page
@@ -34,6 +37,7 @@ describe('Sending a new inventory report', () => {
         cy.contains('hyvä')
         cy.contains('ei löytynyt mitään')
         cy.contains('Cypress Tester')
+        cy.contains('testFile.txt')
         // Check that the contact details are not shown
         cy.contains('cypress@test.mail').should('not.exist')
         cy.contains('+1234567890').should('not.exist')

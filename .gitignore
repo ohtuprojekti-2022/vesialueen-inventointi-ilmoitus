@@ -1,3 +1,4 @@
 .env*
 **/screenshots*
 **/node_modules*
+**testFile.txt
