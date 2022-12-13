@@ -43,7 +43,7 @@ describe('User edit', () => {
         cy.getByTestId("phone").should('have.value', '0400 123456')
 	})
 
-    it('Logged-in user can edit all of their details', () => {
+    it('Logged-in user can change their password', () => {
         // Make sure user is on correct page
 		cy.navigateToUserPage()
         cy.url().should('include', '/omasivu#tiedot')
