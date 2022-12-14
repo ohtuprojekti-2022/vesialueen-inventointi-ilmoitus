@@ -24,7 +24,7 @@ jobs:
           npm install
         
       - name: heroku e2e test backend
-        run: curl ${{ secret.E2E_TEST_BACKEND_URL }}
+        run: curl ${{ secrets.E2E_TEST_BACKEND_URL }}
 
       - name: e2e tests
         uses: cypress-io/github-action@v4
