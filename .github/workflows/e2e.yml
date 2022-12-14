@@ -1,0 +1,35 @@
+name: e2e
+
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: install e2e dependencies
+        run: cd E2E &&
+          npm install
+        
+      - name: Checkout frontend repo
+        uses: actions/checkout@v3
+        with:
+          repository: ohtuprojekti-2022/vesialue-front
+          path: front
+      - name: install front dependencies
+        run: cd front &&
+          npm install
+        
+      - name: heroku e2e test backend
+        run: curl ${{ secret.E2E_TEST_BACKEND_URL }}
+
+      - name: e2e tests
+        uses: cypress-io/github-action@v4
+        with:
+         command: npx cypress run --browser chrome
+         start: cd front &&
+          npm start
+         wait-on: http://localhost:3000
