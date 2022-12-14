@@ -27,8 +27,7 @@ jobs:
         run: curl ${{ secrets.E2E_TEST_BACKEND_URL }}
 
       - name: e2e tests
-      
-      - uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v4
         with:
           start: cd front &&
             npm start
