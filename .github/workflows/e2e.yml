@@ -32,4 +32,5 @@ jobs:
           start: cd front &&
             npm start
           wait-on: http://localhost:3000
+          path: E2E
           browser: chrome
