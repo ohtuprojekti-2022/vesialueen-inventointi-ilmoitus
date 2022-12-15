@@ -4,8 +4,8 @@ on:
   workflow_dispatch
 
 env:
-  CYPRESS_BACKEND_URL: https://vesialue-back-e2e.herokuapp.com
-  REACT_APP_BACKEND_URL: https://vesialue-back-e2e.herokuapp.com
+  CYPRESS_BACKEND_URL: ${{ secrets.E2E_TEST_BACKEND_URL }}
+  REACT_APP_BACKEND_URL: ${{ secrets.E2E_TEST_BACKEND_URL }}
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
         working-directory: front
         
       - name: heroku e2e test backend
-        run: curl https://vesialue-back-e2e.herokuapp.com
+        run: curl ${{ secrets.E2E_TEST_BACKEND_URL }}
 
       - name: start frontend
         run: npm start &
@@ -39,4 +39,4 @@ jobs:
             baseUrl=http://localhost:3000
           working-directory: E2E
           browser: chrome
-          wait-on: http://localhost:3000, https://vesialue-back-e2e.herokuapp.com
+          wait-on: http://localhost:3000, ${{ secrets.E2E_TEST_BACKEND_URL }}
