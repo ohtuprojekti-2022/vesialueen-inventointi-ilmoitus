@@ -15,7 +15,7 @@ Testeissä käytetty testidata on tehty mahdollisimman tarkasti muistuttamaan se
 Testikattavuus sovelluksen tuotantopalvelimella:
 - [![codecov](https://codecov.io/gh/ohtuprojekti-2022/vesialue-back/branch/main/graph/badge.svg?token=VF8NXG8KIG)](https://codecov.io/gh/ohtuprojekti-2022/vesialue-back)
 
-Backendin testikattavuus on Codecovin mukaan hyvin korkea, eli testaus on laaja-alaista ja testaamattomia asioita on hyvin vähän.
+Backendin testikattavuus on Codecovin mukaan varsin korkea, eli testaus on laaja-alaista ja testaamattomia asioita on hyvin vähän.
 
 Testaamisessa on keskitytty ensisijaisesti merkittävimpiin metodeihin ja funktioihin, minkä takia joitain vähemmän käytettyjä toiminnallisuuksia ei ole täysin testattu. 
 
