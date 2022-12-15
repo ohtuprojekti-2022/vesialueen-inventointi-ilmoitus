@@ -24,9 +24,6 @@ describe('Sending a new inventory report', () => {
         cy.getByTestId("name").type('Cypress Tester')
         cy.getByTestId("email").type('cypress@test.mail')
         cy.getByTestId("phone").type('+1234567890')
-        cy.writeFile('cypress/fixtures/testFile.txt', 'Hello World')
-        cy.get('[data-testid="attachments"]').check()
-        cy.get('[data-testid="attachment"]').selectFile('cypress/fixtures/testFile.txt')
         cy.getByTestId("terms-of-services").check()
         cy.getByTestId("submit").click()
         // User should be redirected to the report's page
@@ -37,7 +34,6 @@ describe('Sending a new inventory report', () => {
         cy.contains('hyvä')
         cy.contains('ei löytynyt mitään')
         cy.contains('Cypress Tester')
-        cy.contains('testFile.txt')
         // Check that the contact details are not shown
         cy.contains('cypress@test.mail').should('not.exist')
         cy.contains('+1234567890').should('not.exist')
@@ -74,7 +70,10 @@ describe('Sending a new inventory report', () => {
         cy.getByTestId("moreInfo").type('ei löytynyt mitään')
         cy.getByTestId("other").click()
         cy.getByTestId("methodInfo").type('Test method')
-        cy.getByTestId("submit").click()
+        // Testing file upload
+        cy.writeFile('cypress/fixtures/testFile.txt', 'Hello World')
+        cy.get('[data-testid="attachments"]').check()
+        cy.get('[data-testid="attachment"]').selectFile('cypress/fixtures/testFile.txt')
         // Name and contact info should be pre-filled and not editable
         cy.getByTestId("name")
             .should('have.value', 'Cypress Tester')
@@ -85,8 +84,12 @@ describe('Sending a new inventory report', () => {
         cy.getByTestId("phone")
             .should('have.value', '+358989898989')
             .and('be.disabled')
+        cy.getByTestId("submit").click()
         // Should be redirected to the report's page
         cy.url().should('include', '/raportti/')
+        // Check that file is attached to the report
+        cy.contains('.accordion-button', 'Liitteet').click()
+        cy.contains('testFile.txt')
         // Check that the sent report is shown in user's own inventories
         cy.navigateToUserPage()
         cy.getByTestId("own-inventories").click()
