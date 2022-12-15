@@ -33,7 +33,7 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           config: 
-            baseUrl=http://localhost:3000,
+            baseUrl=http://localhost:3000
           env:
             CYPRESS_BACKEND_URL=${{ secrets.E2E_TEST_BACKEND_URL }}
           working-directory: E2E
