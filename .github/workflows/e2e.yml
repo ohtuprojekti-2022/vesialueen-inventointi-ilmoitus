@@ -8,7 +8,7 @@ env:
   REACT_APP_BACKEND_URL: '${{ secrets.E2E_TEST_BACKEND_URL }}'
 
 jobs:
-  build:
+  e2e-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,4 +39,5 @@ jobs:
             baseUrl=http://localhost:3000
           working-directory: E2E
           browser: chrome
+          headed: true
           wait-on: http://localhost:3000, ${{ secrets.E2E_TEST_BACKEND_URL }}
