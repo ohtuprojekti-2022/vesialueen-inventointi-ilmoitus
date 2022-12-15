@@ -17,7 +17,7 @@ Map features are implemented using Leaflet (React Leaflet). Map data is obtained
 The backend is made using the Flask library for Python. Flask-RESTX library has been used for better management of
 API endpoints. The backend talks to the database using the PyMODM library.
 
-JWT tokens are used to manage user status between backend and frontend.
+JWT tokens are used to manage user state between backend and frontend.
 
 ## Testing and validation
 ### Backend
