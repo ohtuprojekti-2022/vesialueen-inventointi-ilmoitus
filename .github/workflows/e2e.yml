@@ -20,6 +20,7 @@ jobs:
         with:
           repository: ohtuprojekti-2022/vesialue-front
           path: front
+          ref: development
       - name: install front dependencies
         run: npm install
         working-directory: front
