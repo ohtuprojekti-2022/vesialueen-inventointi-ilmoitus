@@ -10,9 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - name: install e2e dependencies
-        run: cd E2E &&
-          npm install
         
       - name: Checkout frontend repo
         uses: actions/checkout@v3
@@ -20,17 +17,18 @@ jobs:
           repository: ohtuprojekti-2022/vesialue-front
           path: front
       - name: install front dependencies
-        run: cd front &&
-          npm install
+        run: npm install
+        working-directory: front
         
       - name: heroku e2e test backend
         run: curl ${{ secrets.E2E_TEST_BACKEND_URL }}
 
+      - name: start frontend
+        run: npm start &
+        working-directory: front
+
       - name: e2e tests
         uses: cypress-io/github-action@v4
         with:
-          start: cd front &&
-            npm start
-          wait-on: http://localhost:3000
           working-directory: E2E
           browser: chrome
