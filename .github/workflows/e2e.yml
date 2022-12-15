@@ -34,4 +34,4 @@ jobs:
             CYPRESS_BACKEND_URL=${{ secrets.E2E_TEST_BACKEND_URL }}
           working-directory: E2E
           browser: chrome
-          wait-on: http://localhost:3000
+          wait-on: http://localhost:3000, ${{ secrets.E2E_TEST_BACKEND_URL }}
