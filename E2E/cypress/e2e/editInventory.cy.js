@@ -14,7 +14,7 @@ describe('Editing inventory reports', () => {
     cy.visit('/')
     
     // Slow down actions to reduce tests failing
-		cy.registerUser(existing_user).slowDown(50)
+		cy.registerUser(existing_user).slowDown(100)
     cy.loginWith(existing_user.username, existing_user.password)
 
     // Fix so the site loads before the next step
