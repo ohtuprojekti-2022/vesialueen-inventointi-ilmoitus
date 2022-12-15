@@ -41,3 +41,9 @@ jobs:
           browser: chrome
           headed: true
           wait-on: http://localhost:3000, ${{ secrets.E2E_TEST_BACKEND_URL }}
+          
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
