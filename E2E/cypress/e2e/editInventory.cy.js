@@ -13,6 +13,9 @@ describe('Editing inventory reports', () => {
 		cy.resetDatabase()
     cy.visit('/')
     
+    // Slow down actions to reduce tests failing
+    cy.slowDown(100)
+    
 		cy.registerUser(existing_user)
     cy.loginWith(existing_user.username, existing_user.password)
 
@@ -20,6 +23,9 @@ describe('Editing inventory reports', () => {
     cy.wait(500)
 
     cy.navigateToNewInventoryForm()
+
+    // End slow down
+    cy.slowDownEnd()
 
     cy.drawPolygon([
         { x: 180, y: 100 },
