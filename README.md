@@ -15,7 +15,7 @@ A public geospatial information service, offered by the [Suomen meriarkeologinen
   * Heroku: [Production](https://vesialue-back.herokuapp.com), [Staging](https://vesialue-back-staging.herokuapp.com)
 
 ### Documentation
-* [User manual](https://github.com/ohtuprojekti-2022/vesialueen-inventointi-ilmoitus/blob/main/user_manual.md)
+* [User manual](user_manual.md)
 * [Tests]()
 * [Architecture](architecture.md)
 
