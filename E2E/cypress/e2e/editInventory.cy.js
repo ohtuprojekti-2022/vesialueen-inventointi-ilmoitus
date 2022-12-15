@@ -13,13 +13,15 @@ describe('Editing inventory reports', () => {
 		cy.resetDatabase()
     cy.visit('/')
     
-		cy.registerUser(existing_user)
+		cy.registerUser(existing_user).slowDown(100)
     cy.loginWith(existing_user.username, existing_user.password)
 
     // Fix so the site loads before the next step
     cy.wait(500)
 
     cy.navigateToNewInventoryForm()
+
+    cy.slowDownEnd()
 
     cy.drawPolygon([
         { x: 180, y: 100 },
