@@ -3,6 +3,10 @@ name: e2e
 on:
   workflow_dispatch
 
+env:
+  CYPRESS_BACKEND_URL: ${{ secrets.E2E_TEST_BACKEND_URL }},
+  REACT_APP_BACKEND_URL: ${{ secrets.E2E_TEST_BACKEND_URL }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,8 +29,6 @@ jobs:
 
       - name: start frontend
         run: npm start &
-        env: 
-          REACT_APP_BACKEND_URL: ${{ secrets.E2E_TEST_BACKEND_URL }}
         working-directory: front
 
       - name: e2e tests
@@ -34,8 +36,6 @@ jobs:
         with:
           config: 
             baseUrl=http://localhost:3000
-          env:
-            CYPRESS_BACKEND_URL=${{ secrets.E2E_TEST_BACKEND_URL }}
           working-directory: E2E
           browser: chrome
           wait-on: http://localhost:3000, ${{ secrets.E2E_TEST_BACKEND_URL }}
