@@ -4,8 +4,8 @@ on:
   workflow_dispatch
 
 env:
-  CYPRESS_BACKEND_URL: ${{ secrets.E2E_TEST_BACKEND_URL }}
-  REACT_APP_BACKEND_URL: ${{ secrets.E2E_TEST_BACKEND_URL }}
+  CYPRESS_BACKEND_URL: '${{ secrets.E2E_TEST_BACKEND_URL }}'
+  REACT_APP_BACKEND_URL: '${{ secrets.E2E_TEST_BACKEND_URL }}'
 
 jobs:
   build:
