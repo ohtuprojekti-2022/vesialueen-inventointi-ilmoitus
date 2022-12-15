@@ -30,7 +30,7 @@ jobs:
       - name: e2e tests
         uses: cypress-io/github-action@v4
         with:
-          env: CYPRESS_BASE_URL=http://localhost:3000
+          env: CYPRESS_BASE_URL='http://localhost:3000'
             CYPRESS_BACKEND_URL=${{ secrets.E2E_TEST_BACKEND_URL }}
           working-directory: E2E
           browser: chrome
