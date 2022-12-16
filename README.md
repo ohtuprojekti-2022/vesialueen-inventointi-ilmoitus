@@ -16,7 +16,9 @@ A public geospatial information service, offered by the [Suomen meriarkeologinen
 
 ### Documentation
 * [User manual](user_manual.md)
-* [Tests]()
+* Testing
+  * [Frontend](testing_document_frontend.md)
+  * [Backend](testing_document_backend.md)
 * [Architecture](architecture.md)
 
 ### Project progress
