@@ -27,8 +27,8 @@ Backend is tested using pytest library. Pylint is used for linting.
 In frontend, Jest is used for testing. Eslint is used for linting.
 
 ### E2E testing
-End-to-end testing is done using Cypress. It is automated and it has GitHub Actions workflows in this repository.
-Separate versions of the backend and frontend are running in Heroku for E2E testing.
+End-to-end testing is done using Cypress. In this repository, the tests have GitHub Actions workflow that is set to be triggered manually.
+Separate version of the backend is running in Heroku for E2E testing.
 
 ## CI/CD and hosting
 ### Automated tests
