@@ -36,6 +36,6 @@ curl <Backend url>                    in the step "heroku e2e test backend"
 wait-on: ---, <Backend url>           in the step "e2e tests"
 ```
 ### Run the tests
-> Before running the tests, backend server linked in the workflow should be hosted.
+> Running the tests remotely might fail occasionally
 
 The tests are run manually in actions by selecting "e2e" workflow and clicking "Run workflow"
